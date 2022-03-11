@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/matisses-goldfish/Project3/issues"
   },
-  "homepage": "https://github.com/matisses-goldfish/Project3#readme"
+  "homepage": "https://github.com/matisses-goldfish/Project3#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
 }
