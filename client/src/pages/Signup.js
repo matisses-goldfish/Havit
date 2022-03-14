@@ -43,7 +43,7 @@ const Signup = () => {
         <Grid>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
-                    <Avatar>
+                    <Avatar style={avatarStyle}>
                         <AddCircleOutlinedPutlinedIcon />
                     </Avatar>
 
