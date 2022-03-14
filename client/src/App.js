@@ -30,21 +30,17 @@ function App() {
                     path="/login" element={<Login />} />
                 <Route
                     path="/signup" element={<Signup />} />
-                 <Route
+                <Route
                     path="/dailyhabitdash" element={<Dailyhabitdash />} />
-                 <Route
+                <Route
                     path="/newhabit" element={<Newhabit />} />
-                 <Route
+                <Route
                     path="/progress" element={<Progress />} />
                 <Route
                     path="/calender" element={<Calender />} />
-                 <Route
+                <Route
                     path="/profile" element={<Profile />} />
-                
-                
-                
             </Routes>
-
         </Router>
         //</ApolloProvider>
     );
