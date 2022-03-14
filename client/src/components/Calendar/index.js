@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import '@nylas/components-agenda';
 
 // Import our search method
-import search from '../utils/Api';
+import search from '../../utils/Api';
 
 const SearchResultContainer = () => {
   // Declare a new state variable, "results"
