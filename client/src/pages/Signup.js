@@ -7,6 +7,7 @@ import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOu
 const Signup = () => {
     const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' }
     const headerStyle = { margin: 0 }
+    
     const [formState, setFormState] = useState({
         name: '',
         email: '',
