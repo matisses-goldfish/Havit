@@ -11,8 +11,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// TODO: import pages here
-// Pseudocode:
+// TODO: import pages here:
+// *need to be adjusted*
 // import Home from './pages/Home';
 // import Login from './pages/Login';
 // import Questions from './pages/Questions';
