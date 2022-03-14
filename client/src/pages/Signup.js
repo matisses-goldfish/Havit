@@ -8,7 +8,7 @@ import { Button } from '@mui/material';
 const Signup = () => {
     const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' }
     const headerStyle = { margin: 0 }
-    
+    const avatarStyle = { backgroundColor: 'blue' }
     const [formState, setFormState] = useState({
         name: '',
         email: '',
