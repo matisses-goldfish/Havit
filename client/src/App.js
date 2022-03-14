@@ -11,7 +11,17 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// TODO: import pages here
+// TODO: import pages here:
+// *need to be adjusted*
+// import Home from './pages/Home';
+// import Login from './pages/Login';
+// import Questions from './pages/Questions';
+// import Dashboard from './pages/Dashboard';
+// import NewGoal from './pages/NewGoal';
+// import Calender from './pages/Calendar';
+// import Profile from './pages/Profile';
+// import Footer from './components/Footer';
+// import Header from './components/Header';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -59,27 +69,33 @@ function App() {
                 // element={<Home />}
               />
               <Route 
-                path="/" 
+                path="/login" 
                 // element={<Login />}
               />
               <Route 
-                path="/" 
-                // element={< />}
+              // TODO: adjust based on data feedback from user
+                path="/questions" 
+                // element={<Questions />}
               />
               <Route 
-                path="/" 
-                // element={< />}
+                path="/dashboard:username" 
+                // element={<Dashboard />}
               />
               <Route 
-                path="/" 
-                // element={< />}
+                path="/newGoal" 
+                // element={<NewGoal />}
               />
               <Route 
-                path="/" 
-                // element={< />}
+                path="/calendar" 
+                // element={<Calender />}
+              />
+              <Route 
+                path="profiles/:username" 
+                // element={< Profile/>}
               />
             </Routes>
           </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
