@@ -11,7 +11,7 @@ const SearchResultContainer = () => {
   // Declare a new state variable, "results"
   // const [results, setResults] = useState([]);
 
-  // Method to get search results and set state
+  // Method to get calender and set results
   const getCalender = async () => {
     const response = await search();
     console.log(response)
