@@ -3,28 +3,23 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
 
-const logout = () => {
-  if(Auth.loggedIn()){
+function NavTabs() {
+
+  const [pageTab, setPageTab] = useState('habit');
+
+  const logout = (event) => {
+    event.preventDefault();
     Auth.logout();
-    return <Redirect to="/login"/>;
-  }
   };
-  // TODO: adjust header to incorporate page components
-  const navBar =()=>{
+
+  const { data } = useQuery(QUERY_ME);
+
   return (
-    <Paper square>
-    <Tabs
-      value={value}
-      indicatorColor="primary"
-      textColor="primary"
-      onChange={handleChange}
-      aria-label="disabled tabs example"
-    >
-      <Tab label="Active" />
-      <Tab label="Disabled" disabled />
-      <Tab label="Active" />
-    </Tabs>
-  </Paper>
+    <div className="container-fluid">
+      {Auth.loggedIn() ? (
+
+    </div>
   );
-  }
-export default navBar;
+}
+
+export default NavTabs;
