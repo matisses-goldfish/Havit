@@ -10,11 +10,11 @@ const Signup = () => {
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: 'blue' }
     const [formState, setFormState] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
-    const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+    const [addUser, { error, data }] = useMutation(ADD_USER);
     // update state based on form input changes
     const handleChange = (event) => {
         const { name, value } = event.target;
