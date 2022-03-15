@@ -1,3 +1,4 @@
+// TODO: add header component
 import React from 'react';
 //import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -20,30 +21,58 @@ import Profile from './pages/Profile';
 //});
 
 function App() {
-    return (
-        //<ApolloProvider client={client}>
-        <Router>
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="App">
+            
+          <div className="container">
             <Routes>
-                <Route
-                    path="/" element={<Home />} />
-                <Route
-                    path="/login" element={<Login />} />
-                <Route
-                    path="/signup" element={<Signup />} />
-                <Route
-                    path="/dailyhabitdash" element={<Dailyhabitdash />} />
-                <Route
-                    path="/newhabit" element={<Newhabit />} />
-                <Route
-                    path="/progress" element={<Progress />} />
-                <Route
-                    path="/calender" element={<Calender />} />
-                <Route
-                    path="/profile" element={<Profile />} />
+              <Route 
+                path="/"
+                element={<Home />}
+              />
+              <Route 
+                path="/login" 
+                element={<Login />}
+              />
+              <Route 
+                path="/signup"
+                element={<Signup />}
+              />
+              <Route 
+              // TODO: adjust based on data feedback from user
+                path="/questions" 
+                element={<Questions />}
+              />
+              <Route 
+                path="/dailyhabitdashboard/:username" 
+                element={<Dailyhabitdash />}
+              />
+              <Route 
+                path="/newhabit" 
+                element={<Newhabit />}
+              />
+              <Route 
+                path="/progress" 
+                element={<Progress />}
+              />
+              <Route 
+                path="/calendar" 
+                element={<Calender />}
+              />
+              <Route 
+                path="profiles/:username" 
+                element={< Profile/>}
+              />
             </Routes>
-        </Router>
-        //</ApolloProvider>
-    );
+          </div>
+          <Footer/>
+        </div>
+      </Router>
+    </ApolloProvider>
+  );
 }
 
 export default App;
+
