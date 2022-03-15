@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node seeds/seed.js",
+    "seed": "node config/seeds.js",
     "start": "node server.js"
   },
   "keywords": [],
@@ -17,6 +17,6 @@
     "express": "^4.17.3",
     "graphql": "^16.3.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.5"
+    "mongoose": "^6.2.6"
   }
 }
