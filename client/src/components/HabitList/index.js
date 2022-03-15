@@ -1,4 +1,4 @@
-// TODO: change code based on model and mutation input
+// TODO: change code based on models
 import React from 'react';
 import * as React from 'react';
 import Card from '@mui/material/Card';
