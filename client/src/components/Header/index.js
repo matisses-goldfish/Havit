@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
 
-const Header = () => {
-  const logout = (event) => {
-    event.preventDefault();
+const logout = () => {
+  if(Auth.loggedIn()){
     Auth.logout();
+    return <Redirect to="/login"/>;
+  }
   };
   // TODO: adjust header to incorporate page components
   return (
