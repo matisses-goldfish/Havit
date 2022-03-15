@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { ADD_PROFILE } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 import { Grid, Paper } from '@material-ui/core';
 import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Button } from '@mui/material';
