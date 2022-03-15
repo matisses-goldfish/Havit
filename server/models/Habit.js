@@ -15,8 +15,7 @@ const habitSchema = new Schema({
         ref: 'Type',
     },
     createdDate: {
-        type: Date,
-        required: true
+        type: Date
     },
     // the date by which the user wants to aquire the habit:
     endDate: {

@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Habit, Type, Interval } = require('../models');
+const { User, Habit, Type, Interval, Stat } = require('../models');
 
 db.once('open', async() => {
     await Type.deleteMany();
@@ -13,38 +13,6 @@ db.once('open', async() => {
     ]);
 
     console.log('categories seeded');
-
-    await Habit.deleteMany();
-
-    const habits = await Habit.insertMany([
-        {
-            name: 'Get at least 7 hours of sleep',
-            type: types[0]._id,
-        },
-        {
-            name: 'Practice yoga or exercise',
-            type: types[0]._id,
-        },
-        {
-            name: 'Track my expenses daily',
-            type: types[1]._id,
-        },
-        {
-            name: 'Make and maintain a To-Do list',
-            type: types[2]._id,
-        },
-        {
-            name: 'Write things I am thankful for',
-            type: types[3]._id,
-        },
-        {
-            name: 'Initiate a conversation or a social event',
-            type: types[4]._id,
-        }
-
-    ]);
-
-    console.log('habits seeded');
 
     await Interval.deleteMany();
 
@@ -64,28 +32,112 @@ db.once('open', async() => {
 
     ]);
 
-    console.log('habits seeded');
+    console.log('interval seeded');
 
     await User.deleteMany();
 
-    await User.create({
+    const user1 = await User.create({
         userName: 'PamelaW',
         email: 'pamela@test.com',
-        password: 'password12345',
-        habit: [
-        {
-            habits: [habits[0]._id, habits[1]._id, habits[4]._id]
-        }
-        ]
+        password: 'password12345'
     });
 
-    await User.create({
+    const user2 = await User.create({
         userName: 'ElijahM',
         email: 'eholt@test.com',
         password: 'password12345'
     });
 
     console.log('users seeded');
+
+    await Habit.deleteMany();
+
+    const habits = await Habit.insertMany([
+        {
+            name: 'Get at least 7 hours of sleep',
+            type: types[0]._id,
+            endDate: new Date(2022, 4, 20),
+            goalValue: 7,
+            user: user1,
+            interval: intervals[0]
+        },
+        {
+            name: 'Practice yoga or exercise',
+            type: types[0]._id,
+            endDate: new Date(2022, 5, 15),
+            goalValue: 20,
+            user: user1,
+            interval: intervals[1]
+
+        },
+        {
+            name: 'Track my expenses daily',
+            type: types[1]._id,
+            endDate: new Date(2022, 4, 18),
+            goalValue: 1,
+            user: user2,
+            interval: intervals[0]
+        },
+        {
+            name: 'Make and maintain a To-Do list',
+            type: types[2]._id,
+            endDate: new Date(2022, 4, 18),
+            goalValue: 1,
+            user: user2,
+            interval: intervals[2]
+
+        },
+        {
+            name: 'Write things I am thankful for',
+            type: types[3]._id,
+            endDate: new Date(2022, 4, 01),
+            goalValue: 3,
+            user: user2,
+            interval: intervals[0]
+        },
+        {
+            name: 'Initiate a conversation or a social event',
+            type: types[4]._id,
+            endDate: new Date(2022, 4, 01),
+            goalValue: 1,
+            user: user1,
+            interval: intervals[2]
+        }
+
+    ]);
+
+    console.log('habits seeded');
+
+    await Stat.deleteMany();
+
+    const stats = await Stat.insertMany([
+        {
+            enteredDate: new Date(2022, 3, 01),
+            user: user1,
+            habit: habits[0]._id,
+            value: 8
+        },
+        {
+            enteredDate: new Date(2022, 3, 10),
+            user: user1,
+            habit: habits[1]._id,
+            value: 15
+        },
+        {
+            enteredDate: new Date(2022, 2, 20),
+            user: user2,
+            habit: habits[3]._id,
+            value: 1
+        },
+        {
+            enteredDate: new Date(2022, 3, 01),
+            user: user2,
+            habit: habits[4]._id,
+            value: 2
+        }
+    ]);
+
+    console.log('stats seeded');
 
     process.exit();
 
