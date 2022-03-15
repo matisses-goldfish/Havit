@@ -1,6 +1,3 @@
-// import logo from './logo.svg';
-// import './App.css';
-
 import React from 'react';
 import {
   ApolloClient,
@@ -11,16 +8,14 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// TODO: import pages here:
-// import Home from './pages/Home';
-// import Login from './pages/Login';
-// import Questions from './pages/Questions';
-// import Dashboard from './pages/Dashboard';
-// import NewGoal from './pages/NewGoal';
-// import Calender from './pages/Calendar';
-// import Profile from './pages/Profile';
-// import Footer from './components/Footer';
-// import Header from './components/Header';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
+import Dailyhabitdash from './pages/Dailyhabitdashboard';
+import Newhabit from './pages/Newhabit';
+import Progress from './pages/Progress';
+import Calender from './pages/Calender';
+import Profile from './pages/Profile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -47,54 +42,49 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="App">
-          {/* <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header> */}
+            
           <div className="container">
             <Routes>
               <Route 
                 path="/"
-                // element={<Home />}
+                element={<Home />}
               />
               <Route 
                 path="/login" 
-                // element={<Login />}
+                element={<Login />}
+              />
+              <Route 
+                path="/signup"
+                element={<Signup />}
               />
               <Route 
               // TODO: adjust based on data feedback from user
                 path="/questions" 
-                // element={<Questions />}
+                element={<Questions />}
               />
               <Route 
-                path="/dashboard:username" 
-                // element={<Dashboard />}
+                path="/Dailyhabitdashboard/:username" 
+                element={<Dailyhabitdashboard />}
               />
               <Route 
-                path="/newGoal" 
-                // element={<NewGoal />}
+                path="/newhabit" 
+                element={<Newhabit />}
+              />
+              <Route 
+                path="/progress" 
+                element={<Progress />}
               />
               <Route 
                 path="/calendar" 
-                // element={<Calender />}
+                element={<Calender />}
               />
               <Route 
                 path="profiles/:username" 
-                // element={< Profile/>}
+                element={< Profile/>}
               />
             </Routes>
           </div>
-          <Footer />
+          <Footer/>
         </div>
       </Router>
     </ApolloProvider>
@@ -102,4 +92,3 @@ function App() {
 }
 
 export default App;
-
