@@ -1,4 +1,4 @@
-// TODO: habit models: time of day???
+// TODO: habit models: time of day 
 // TODO: test if date picker works
 import React, { useState } from 'react';
 import * as React from 'react';
