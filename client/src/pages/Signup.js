@@ -5,6 +5,10 @@ import { ADD_USER } from '../utils/mutations';
 import { Grid, Paper } from '@material-ui/core';
 import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Avatar from '@mui/material/Avatar';
+
+
 const Signup = () => {
     const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' }
     const headerStyle = { margin: 0 }
