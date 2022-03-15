@@ -3,6 +3,7 @@ import React from 'react';
 //import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -11,6 +12,7 @@ import Newhabit from './pages/Newhabit';
 import Progress from './pages/Progress';
 import Calender from './pages/Calender';
 import Profile from './pages/Profile';
+import Footer from './components/Footer';
 
 
 
@@ -22,7 +24,7 @@ import Profile from './pages/Profile';
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+
       <Router>
         <div className="App">
             
@@ -39,11 +41,6 @@ function App() {
               <Route 
                 path="/signup"
                 element={<Signup />}
-              />
-              <Route 
-              // TODO: adjust based on data feedback from user
-                path="/questions" 
-                element={<Questions />}
               />
               <Route 
                 path="/dailyhabitdashboard/:username" 
@@ -70,7 +67,6 @@ function App() {
           <Footer/>
         </div>
       </Router>
-    </ApolloProvider>
   );
 }
 

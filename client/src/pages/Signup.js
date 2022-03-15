@@ -7,6 +7,7 @@ import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOu
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
 
 
 const Signup = () => {
