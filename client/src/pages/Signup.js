@@ -53,7 +53,7 @@ const Signup = () => {
                 <form onSubmit={handleFormSubmit}>
                     <TextField fullWidth label='Username' placeholder="Enter your name"
                         type='text'
-                        value={formState.name}
+                        value={formState.username}
                         onChange={handleChange} />
                     <TextField fullWidth label='Email'
                         value={formState.email}
