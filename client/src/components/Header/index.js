@@ -10,7 +10,7 @@ const logout = () => {
   }
   };
   // TODO: adjust header to incorporate page components
-  const appBar =()=>{
+  const navBar =()=>{
   return (
     <Paper square>
     <Tabs
@@ -27,4 +27,4 @@ const logout = () => {
   </Paper>
   );
   }
-export default appBar;
+export default navBar;
