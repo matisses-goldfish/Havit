@@ -15,7 +15,7 @@ const statSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Habit'
   },
-  goalValue: {
+  value: {
       type: Number,
       required:true
   }

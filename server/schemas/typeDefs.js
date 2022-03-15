@@ -20,7 +20,7 @@ const typeDefs = gql`
     // enteredDate: ????? Create scalar in schema
     user: User
     habit: Habit
-    goalValue: Int
+    value: Int
   }
 
   type Type {

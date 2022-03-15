@@ -16,7 +16,7 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_HABIT = gql`
+export const QUERY_HABITS = gql`
   query gethabits {
     habits {
         _id
