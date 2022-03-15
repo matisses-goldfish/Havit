@@ -1,106 +1,50 @@
-// import logo from './logo.svg';
-// import './App.css';
-// add comment to merge main
-
 import React from 'react';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+//import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// TODO: import pages here:
-// *need to be adjusted*
-// import Home from './pages/Home';
-// import Login from './pages/Login';
-// import Questions from './pages/Questions';
-// import Dashboard from './pages/Dashboard';
-// import NewGoal from './pages/NewGoal';
-// import Calender from './pages/Calendar';
-// import Profile from './pages/Profile';
-// import Footer from './components/Footer';
-// import Header from './components/Header';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
+import Dailyhabitdash from './pages/Dailyhabitdashboard';
+import Newhabit from './pages/Newhabit';
+import Progress from './pages/Progress';
+import Calender from './pages/Calender';
+import Profile from './pages/Profile';
 
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
 
+//const client = new ApolloClient({
+// uri: '/graphql',
+// cache: new InMemoryCache(),
+//});
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="App">
-          {/* <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header> */}
-          <div className="container">
+    return (
+        //<ApolloProvider client={client}>
+        <Router>
             <Routes>
-              <Route 
-                path="/"
-                // element={<Home />}
-              />
-              <Route 
-                path="/login" 
-                // element={<Login />}
-              />
-              <Route 
-              // TODO: adjust based on data feedback from user
-                path="/questions" 
-                // element={<Questions />}
-              />
-              <Route 
-                path="/dashboard:username" 
-                // element={<Dashboard />}
-              />
-              <Route 
-                path="/newGoal" 
-                // element={<NewGoal />}
-              />
-              <Route 
-                path="/calendar" 
-                // element={<Calender />}
-              />
-              <Route 
-                path="profiles/:username" 
-                // element={< Profile/>}
-              />
+                <Route
+                    path="/" element={<Home />} />
+                <Route
+                    path="/login" element={<Login />} />
+                <Route
+                    path="/signup" element={<Signup />} />
+                <Route
+                    path="/dailyhabitdash" element={<Dailyhabitdash />} />
+                <Route
+                    path="/newhabit" element={<Newhabit />} />
+                <Route
+                    path="/progress" element={<Progress />} />
+                <Route
+                    path="/calender" element={<Calender />} />
+                <Route
+                    path="/profile" element={<Profile />} />
             </Routes>
-          </div>
-          <Footer />
-        </div>
-      </Router>
-    </ApolloProvider>
-  );
+        </Router>
+        //</ApolloProvider>
+    );
 }
 
 export default App;
+
