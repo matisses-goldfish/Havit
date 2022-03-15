@@ -10,39 +10,21 @@ const logout = () => {
   }
   };
   // TODO: adjust header to incorporate page components
+  const appBar =()=>{
   return (
-    <header className="">
-      {/* <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">Tech Thoughts</h1>
-          </Link>
-          <p className="m-0">Get into the mind of a programmer.</p>
-        </div>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
-      </div> */}
-    </header>
+    <Paper square>
+    <Tabs
+      value={value}
+      indicatorColor="primary"
+      textColor="primary"
+      onChange={handleChange}
+      aria-label="disabled tabs example"
+    >
+      <Tab label="Active" />
+      <Tab label="Disabled" disabled />
+      <Tab label="Active" />
+    </Tabs>
+  </Paper>
   );
-};
-
-export default Header;
+  }
+export default appBar;
