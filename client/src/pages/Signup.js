@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+//import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+//import { ADD_USER } from '../utils/mutations';
 import { Grid, Paper } from '@material-ui/core';
 import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Button } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import { ADD_USER } from '../utils/mutations';
 
 
 const Signup = () => {
@@ -19,7 +20,7 @@ const Signup = () => {
         email: '',
         password: '',
     });
-    const [addUser, { error, data }] = useMutation(ADD_USER);
+   // const [addUser, { error, data }] = useMutation(ADD_USER);
     // update state based on form input changes
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -35,7 +36,7 @@ const Signup = () => {
         console.log(formState);
 
         try {
-            const { data } = await addUser({
+            const { data } = await ADD_USER({
                 variables: { ...formState },
             });
 
