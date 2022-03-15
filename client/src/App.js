@@ -1,3 +1,4 @@
+// TODO: add header component
 import React from 'react';
 import {
   ApolloClient,
@@ -63,8 +64,8 @@ function App() {
                 element={<Questions />}
               />
               <Route 
-                path="/Dailyhabitdashboard/:username" 
-                element={<Dailyhabitdashboard />}
+                path="/dailyhabitdashboard/:username" 
+                element={<Dailyhabitdash />}
               />
               <Route 
                 path="/newhabit" 
