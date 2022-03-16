@@ -24,6 +24,7 @@ const typeDefs = gql`
     user: User
     habit: Habit
     value: Int
+    enteredDate: Date
   }
 
   type Type {
