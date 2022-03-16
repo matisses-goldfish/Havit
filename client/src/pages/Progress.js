@@ -1,33 +1,27 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
-import Slider from '@mui/material/Slider';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+
 
 function Progress() {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                '& > :not(style)': {
-                    m: 1,
-                    width: 128,
-                    height: 128,
-                },
-            }}
-        >
-            <Paper elevation={0}
-            />
-            <h1>Welcome back...</h1>
-            <h3>Question 1?</h3>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-            <h3>Question 2?</h3>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-            <h3>Question 3?</h3>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-            <h3>Text Iput Question</h3>
-            <TextField id="filled-basic" label="Filled" variant="filled" />
-        </Box>
+        <React.Fragment>
+        <CssBaseline />
+        <Container sx={{ m: 4 }}>
+          <grid>
+            <Box sx={{ bgcolor: '#FFFFFF', height: '70vh', width:'160vh', p: 7}} textAlign='center'>
+            <Typography variant="h2" component="h1" align="center">
+              Welcome Back...
+            </Typography>
+
+            
+            </Box>
+          </grid>
+        </Container>
+      </React.Fragment>
     );
 }
 
