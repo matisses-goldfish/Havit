@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
-import { ADD_PROFILE } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 import { Grid, Paper } from '@material-ui/core';
 import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { Button } from '@mui/material';
@@ -10,11 +10,11 @@ const Signup = () => {
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: 'blue' }
     const [formState, setFormState] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
-    const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+    const [addUser, { error, data }] = useMutation(ADD_USER);
     // update state based on form input changes
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -30,15 +30,16 @@ const Signup = () => {
         console.log(formState);
 
         try {
-            const { data } = await addProfile({
+            const { data } = await addUser({
                 variables: { ...formState },
             });
 
-            Auth.login(data.addProfile.token);
+            Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
         }
     };
+    
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>
@@ -53,7 +54,7 @@ const Signup = () => {
                 <form onSubmit={handleFormSubmit}>
                     <TextField fullWidth label='Username' placeholder="Enter your name"
                         type='text'
-                        value={formState.name}
+                        value={formState.username}
                         onChange={handleChange} />
                     <TextField fullWidth label='Email'
                         value={formState.email}
