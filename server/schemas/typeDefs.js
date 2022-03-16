@@ -1,6 +1,10 @@
 const { gql } = require('apollo-server-express');
 
+//TODO for stat enteredDate: ????? Create scalar in schema
+
 const typeDefs = gql`
+  scalar Date
+
   type Habit {
     _id: ID
     name: String
@@ -17,7 +21,6 @@ const typeDefs = gql`
   }
 
   type Stat {
-    // enteredDate: ????? Create scalar in schema
     user: User
     habit: Habit
     value: Int
@@ -25,7 +28,7 @@ const typeDefs = gql`
 
   type Type {
     _id: ID
-    name: 
+    name: String
   }
 
   type User {
@@ -46,14 +49,20 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    habit(_id: String): Habit
     habits: [Habit]
-    stats: [Stat]
+    activeHabits: [Habit]
+    stats(_id: String): [Stat]
+    types: [Type]
+    intervals: [Interval]
   }
 
   type Mutation {
     addUser(userName: String!, email: String!, password: String!): Auth
     updateUser(userName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    addHabit(name: String, type: String, endDate: Date, interval: String, goalValue: Int): Habit
+    updateHabit(id: String!, name: String!, type: Type, interval: Interval, endDate: Date, goalValue: Int): Habit
   }
 
 `;
