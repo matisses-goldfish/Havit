@@ -8,6 +8,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -16,6 +17,7 @@ import Newhabit from './pages/Newhabit';
 import Progress from './pages/Progress';
 import Calender from './pages/Calender';
 import Profile from './pages/Profile';
+
 import Footer from './components/Footer/index'
 // add these two library import statements
 
@@ -44,10 +46,9 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+
       <Router>
         <div className="App">
-            
           <div className="container">
             <Routes>
               <Route 
@@ -63,6 +64,7 @@ function App() {
                 element={<Signup />}
               />
               <Route 
+
               // TODO: adjust based on data feedback from user
                 path="/progress" 
                 element={<Progress />}
@@ -94,7 +96,6 @@ function App() {
           <Footer/>
         </div>
       </Router>
-    </ApolloProvider>
   );
 }
 
