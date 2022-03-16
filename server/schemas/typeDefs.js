@@ -62,7 +62,7 @@ const typeDefs = gql`
     updateUser(userName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
     addHabit(name: String, type: String, endDate: Date, interval: String, goalValue: Int): Habit
-    updateHabit(id: String!, name: String!, type: Type, interval: Interval, endDate: Date, goalValue: Int): Habit
+    updateHabit(id: String!, name: String!, type: String, interval: String, endDate: Date, goalValue: Int): Habit
   }
 
 `;
