@@ -55,13 +55,14 @@ const Signup = () => {
                     </Avatar>
 
                     <h2 style={headerStyle}>Sign Up</h2>
-                    <Typography variant='caption' gutterBottom>Please fill this account to create an account!</Typography>
+                    <Typography variant='caption' gutterBottom>Please fill this to create an account!</Typography>
                 </Grid>
                 <form onSubmit={handleFormSubmit}>
-                    <TextField fullWidth label='Username' placeholder="Enter your name"
+                    <TextField  fullWidth label='Username' placeholder="Enter your name"
                         type='text'
                         value={formState.username}
-                        onChange={handleChange} />
+                        onChange={handleChange}
+                        />
                     <TextField fullWidth label='Email'
                         value={formState.email}
                         onChange={handleChange} />
