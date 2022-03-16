@@ -26,7 +26,6 @@ function App() {
 
       <Router>
         <div className="App">
-            
           <div className="container">
             <Routes>
               <Route 
