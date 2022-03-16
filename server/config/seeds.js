@@ -16,7 +16,7 @@ db.once('open', async() => {
 
     await Interval.deleteMany();
 
-    const intervals = await Type.insertMany([
+    const intervals = await Interval.insertMany([
         {
             name: 'Morning',
         },
