@@ -7,6 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+// TODO: add loop that takes data from graphql / typedefs and iterates this info here
 
 const HabitList = ({
 

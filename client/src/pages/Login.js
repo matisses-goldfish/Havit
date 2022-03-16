@@ -1,32 +1,94 @@
-import React from 'react';
-import { Grid, Paper } from '@material-ui/core';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import FormGroup from '@mui/material/FormGroup';
+// sourced code: https://github.com/mui/material-ui/tree/v5.5.1/docs/data/material/getting-started/templates/sign-in
+
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Button } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import Avatar from '@mui/material/Avatar';
 
-function Login() {
-    const paperStyle = { padding: 20, height: '70vh', width: 200, margin: "20px auto" }
-    const avatarStyle = { backgroundColor: 'blue' }
-    return (
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}> <LockOutlinedIcon /></Avatar>
-                    <h2>LogIn</h2>
-                </Grid>
-                <TextField lable='Username' placeholder='Enter username' fullWidth required />
-                <TextField lable='Password' placeholder='Enter password' type='password' fullWidth required />
-                <FormGroup>
-                    <FormControlLabel control={<Checkbox defaultChecked />} label="Remember me" />
-                </FormGroup>
-                <Button type='submit' color='primary' variant="contained" fullWidth>Login</Button>
-            </Paper>
-        </Grid>
-    );
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme();
+
+export default function LogIn() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Log in
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Log In
+            </Button>
+            <Grid container>
+              <Grid item xs={12}>
+                <Link href="/signup" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
+  );
 }
-
-export default Login;

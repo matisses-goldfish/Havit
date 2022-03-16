@@ -7,10 +7,7 @@
     "@apollo/client": "^3.5.10",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
-<<<<<<< HEAD
     "@fontsource/roboto": "^4.5.3",
-=======
->>>>>>> 9b1f32f4ec373956b20820adf98c0639e90cba4a
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@mui/icons-material": "^5.5.1",

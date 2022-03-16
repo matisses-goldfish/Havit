@@ -17,6 +17,8 @@ import Newhabit from './pages/Newhabit';
 import Progress from './pages/Progress';
 import Calender from './pages/Calender';
 import Profile from './pages/Profile';
+
+import Footer from './components/Footer/index'
 // add these two library import statements
 
 const httpLink = createHttpLink({
@@ -62,7 +64,15 @@ function App() {
                 element={<Signup />}
               />
               <Route 
-                path="/dailyhabitdashboard/:username" 
+
+              // TODO: adjust based on data feedback from user
+                path="/progress" 
+                element={<Progress />}
+              />
+
+              {/* TODO: change to /Dailyhabitdashboard/:username */}
+              <Route 
+                path="/Dailyhabitdashboard" 
                 element={<Dailyhabitdash />}
               />
               <Route 
@@ -90,4 +100,3 @@ function App() {
 }
 
 export default App;
-

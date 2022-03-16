@@ -1,84 +1,107 @@
-import React, { useState } from 'react';
-//import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-//import { ADD_USER } from '../utils/mutations';
-import { Grid, Paper } from '@material-ui/core';
-import AddCircleOutlinedPutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import { Button } from '@mui/material';
-import TextField from '@mui/material/TextField';
+// sourced code: https://github.com/mui/material-ui/tree/v5.5.1/docs/data/material/getting-started/templates/sign-up
+
+import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { ADD_USER } from '../utils/mutations';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+const theme = createTheme();
 
-const Signup = () => {
-    const paperStyle = { padding: '30px 20px', width: 300, margin: '20px auto' }
-    const headerStyle = { margin: 0 }
-    const avatarStyle = { backgroundColor: 'blue' }
-    const [formState, setFormState] = useState({
-        username: '',
-        email: '',
-        password: '',
+export default function SignUp() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
     });
-   // const [addUser, { error, data }] = useMutation(ADD_USER);
-    // update state based on form input changes
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+  };
 
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(formState);
-
-        try {
-            const { data } = await ADD_USER({
-                variables: { ...formState },
-            });
-
-            Auth.login(data.addUser.token);
-        } catch (e) {
-            console.error(e);
-        }
-    };
-    
-    return (
-        <Grid>
-            <Paper elevation={20} style={paperStyle}>
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}>
-                        <AddCircleOutlinedPutlinedIcon />
-                    </Avatar>
-
-                    <h2 style={headerStyle}>Sign Up</h2>
-                    <Typography variant='caption' gutterBottom>Please fill this account to create an account!</Typography>
-                </Grid>
-                <form onSubmit={handleFormSubmit}>
-                    <TextField fullWidth label='Username' placeholder="Enter your name"
-                        type='text'
-                        value={formState.username}
-                        onChange={handleChange} />
-                    <TextField fullWidth label='Email'
-                        value={formState.email}
-                        onChange={handleChange} />
-                    <TextField fullWidth label='Password'
-                        placeholder="******"
-                        type="password"
-                        value={formState.password}
-                        onChange={handleChange} />
-                    <TextField fullWidth label='Confirm Password' placeholder="******"
-                        value={formState.password}
-                        onChange={handleChange} />
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button>
-
-                </form>
-            </Paper>
-        </Grid>
-    );
-};
-
-export default Signup;
+  return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="username"
+                  label=" Username "
+                  name="usernmae"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  label="I agree to all terms and conditions"
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item xs={12}>
+                <Link href="/login" variant="body2">
+                  {'Already have an account? Sign in'}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
+  );
+}
