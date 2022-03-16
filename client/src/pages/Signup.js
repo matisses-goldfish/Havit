@@ -39,6 +39,7 @@ const Signup = () => {
             console.error(e);
         }
     };
+    
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>
