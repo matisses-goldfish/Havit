@@ -35,7 +35,7 @@ const resolvers = {
                 habit: {
                     _id
                 }
-            });
+            }).populate('user');
           },
         // getTypes
         types: async (parent) => {
