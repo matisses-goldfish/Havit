@@ -1,5 +1,5 @@
 // sourced code: https://github.com/mui/material-ui/tree/v5.5.1/docs/data/material/getting-started/templates/sign-in
-
+// new comment addition
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
