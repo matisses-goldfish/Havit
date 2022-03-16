@@ -8,6 +8,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -43,10 +44,9 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+
       <Router>
         <div className="App">
-            
           <div className="container">
             <Routes>
               <Route 
@@ -60,11 +60,6 @@ function App() {
               <Route 
                 path="/signup"
                 element={<Signup />}
-              />
-              <Route 
-              // TODO: adjust based on data feedback from user
-                path="/questions" 
-                element={<Questions />}
               />
               <Route 
                 path="/dailyhabitdashboard/:username" 
@@ -91,7 +86,6 @@ function App() {
           <Footer/>
         </div>
       </Router>
-    </ApolloProvider>
   );
 }
 

@@ -5,6 +5,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Avatar from '@mui/material/Avatar';
 
 function Login() {
     const paperStyle = { padding: 20, height: '70vh', width: 200, margin: "20px auto" }
