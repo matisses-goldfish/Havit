@@ -8,33 +8,22 @@ import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { CardActionArea } from '@mui/material';
 
-import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../../utils/queries';
 // TODO: add loop that takes data from graphql / typedefs and iterates this info here
 
-const HabitList = () => {
-  const { loading, data } = useQuery(QUERY_USER);
-
-  const userData = data?.user || {};
-
+export default function Progress() {
   return (
-    <div>
-      {userData.habits?.map((habit) => {
-        return (
-          // TODO: would we want the type to be correlated with an icon?
-          // TODO: adjust maxWidth
       <Card>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          {habit.name}
+          Sleep
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          {habit.createdDate}
+            created: March 2 2022
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {/* TODO: Change based on models */}
-          {habit.goalValue}
+            Master level
             {/* TODO: possible have it effect color??? */}
           </Typography>
           <FormControlLabel
@@ -44,11 +33,5 @@ const HabitList = () => {
         </CardContent>
       </CardActionArea>
     </Card>
-    
     );
-  })}    
-  </div>
-  );
 };
-
-export default HabitList;
