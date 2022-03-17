@@ -47,7 +47,7 @@ const Separator = styled('div')(
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 1: 
+              Question 1: On a sclae of 1-10 how is your water intake?
             </Typography>
             <Slider
                 aria-label="Progress"
@@ -62,7 +62,7 @@ const Separator = styled('div')(
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 2: 
+            Question 2: On a sclae of 1-10 how was your sleep last night?
             </Typography>
             <Slider
                 aria-label="Progress"
@@ -77,7 +77,7 @@ const Separator = styled('div')(
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 3: 
+              Question 3: On a sclae of 1-10 how would rate your stress level?
             </Typography>
             <Slider
                 aria-label="Progress"
@@ -92,7 +92,7 @@ const Separator = styled('div')(
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 4: 
+              Question 4: Please shared thoughts on how you think your improve your personal and professional self?
             </Typography>
             <TextField 
             fullWidth 

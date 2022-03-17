@@ -9,11 +9,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { CardActionArea } from '@mui/material';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../../utils/queries';
 // TODO: add loop that takes data from graphql / typedefs and iterates this info here
 
 const HabitList = () => {
-  const { loading, data } = useQuery(QUERY_USER);
 
   const userData = data?.user || {};
 
