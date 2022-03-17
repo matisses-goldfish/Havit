@@ -19,6 +19,7 @@ import Calender from './pages/Calender';
 import Profile from './pages/Profile';
 
 import Footer from './components/Footer/index'
+// import Header from './components/Header/index'
 // add these two library import statements
 
 const httpLink = createHttpLink({
@@ -51,6 +52,7 @@ function App() {
         <div className="App">
           <NavTab />
           <div className="container">
+          {/* <Header/> */}
             <Routes>
               <Route 
                 path="/"
