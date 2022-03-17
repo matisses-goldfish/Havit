@@ -43,7 +43,7 @@ function Dailyhabitdash() {
     return (
         <React.Fragment>
         <CssBaseline />
-        <Container  sx={{ bgcolor: '#FFFFFF', height: '100vh', p: 7}}>
+        <Container  sx={{height: '100vh', p: 7}}>
         <Grid container spacing={2} columns={16}> 
         <Grid xs={8}>
             <Box
@@ -84,7 +84,7 @@ function Dailyhabitdash() {
                         <Grid xs={10}>
                             <CardContent>
                             <Typography variant="subtitle1" component="h1" align="left">
-                                Beginer 
+                                Beginner 
                             </Typography>
                             <Typography variant="h4" component="h1" align="left">
                                 Sleep 
