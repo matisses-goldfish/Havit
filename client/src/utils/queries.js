@@ -51,22 +51,23 @@ export const QUERY_SINGLE_HABIT = gql`
   }
 `;
 
-export const QUERY_ACTIVE_HABITS = gql`
-  query activeHabits() {
-    habit {
-        _id
-        name
-        type {
-          _id 
-          name
-        }
-        endDate
-        interval {
-          _id
-          name}
-    }
-  }
-`;
+export const QUERY_ACTIVE_HABITS = '';
+// export const QUERY_ACTIVE_HABITS = gql`
+//   query activeHabits() {
+//     habit {
+//         _id
+//         name
+//         type {
+//           _id 
+//           name
+//         }
+//         endDate
+//         interval {
+//           _id
+//           name}
+//     }
+//   }
+// `;
 
 export const QUERY_STATS = gql`
   query stats ($habitId: String!) {
@@ -82,20 +83,16 @@ export const QUERY_STATS = gql`
   }
 `;
 
-export const QUERY_TYPES = gql`
-  query types {
+export const QUERY_TYPES = gql`{
     types {
         _id
         name
     }
-  }
-`;
+}`;
 
-export const QUERY_INTERVALS = gql`
-  query intervals {
+export const QUERY_INTERVALS = gql`{
     intervals {
         _id
         name
     }
-  }
-`;
+}`;
