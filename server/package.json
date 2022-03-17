@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node seeds/seed.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "node server.js"
   },
   "keywords": [],
   "author": "",

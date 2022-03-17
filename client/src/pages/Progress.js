@@ -1,34 +1,114 @@
+// TODO list:
+// 1. we need to map the questions in relation to the habits in the database connected by the User Id
+// 2. We need to create an onclick function for the button to collect the data the user has given us
+// 3. We need to iniatalize the handleSubmit
+
 import React from 'react';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
-function Progress() {
-    return (
-        <Box
-            sx={{
-                display: 'flex',
-                '& > :not(style)': {
-                    m: 1,
-                    width: 128,
-                    height: 128,
-                },
-            }}
-        >
-            <Paper elevation={0}
-            />
-            <h1>Welcome back...</h1>
-            <h3>Question 1?</h3>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-            <h3>Question 2?</h3>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-            <h3>Question 3?</h3>
-            <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
-            <h3>Text Iput Question</h3>
-            <TextField id="filled-basic" label="Filled" variant="filled" />
-        </Box>
-    );
+
+// functions and const that allow us to apply some styling to the questions
+function valuetext(value) {
+    return `${value}`;
 }
 
-export default Progress;
+const Separator = styled('div')(
+    ({ theme }) => `
+    height: ${theme.spacing(5)};
+  `,
+);
+
+  export default function Progress() {
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        email: data.get('email'),
+        password: data.get('password'),
+      });
+    };
+
+    return (
+        <React.Fragment>
+        <CssBaseline />
+        <Container sx={{ m: 4 }}>
+          <grid>
+            <Box sx={{ bgcolor: '#FFFFFF', height: '100vh', width:'160vh', p: 7}} textAlign='center'>
+            <Typography variant="h2" component="h1" align="center">
+              Welcome Back...
+            </Typography>
+            <Separator />
+            {/* TODO: !!! */}
+            <Typography variant="h5" component="h1" align="center">
+              Question 1: 
+            </Typography>
+            <Slider
+                aria-label="Progress"
+                defaultValue={3}
+                getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                step={1}
+                marks
+                min={1}
+                max={10}
+            />
+            <Separator />
+            {/* TODO: !!! */}
+            <Typography variant="h5" component="h1" align="center">
+              Question 2: 
+            </Typography>
+            <Slider
+                aria-label="Progress"
+                defaultValue={3}
+                getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                step={1}
+                marks
+                min={1}
+                max={10}
+            />
+            <Separator />
+            {/* TODO: !!! */}
+            <Typography variant="h5" component="h1" align="center">
+              Question 3: 
+            </Typography>
+            <Slider
+                aria-label="Progress"
+                defaultValue={3}
+                getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                step={1}
+                marks
+                min={1}
+                max={10}
+            />
+            <Separator />
+            {/* TODO: !!! */}
+            <Typography variant="h5" component="h1" align="center">
+              Question 4: 
+            </Typography>
+            <TextField 
+            fullWidth 
+            multiline
+            rows={5} 
+            label="Share your thoughts..." 
+            id="fullWidth" />
+            <Separator />
+            {/* TODO: Add button onclick data submission */}
+            <Button href="/dailyhabitdashboard"variant="contained" size="large">
+            Continue
+            </Button>
+
+            </Box>
+          </grid>
+        </Container>
+      </React.Fragment>
+    );
+}

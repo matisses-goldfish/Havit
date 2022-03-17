@@ -121,6 +121,7 @@ const HabitForm = () => {
               name="habitName"
             />
             {/* TODO: Change based on Models */}
+            {/* type- Model */}
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label"> Habit Type </InputLabel>
               <Select
@@ -130,6 +131,7 @@ const HabitForm = () => {
                 label="Type"
                 onChange={handleChange}
               >
+                {/* TODO: double check these */}
                 <MenuItem value={health}>Healthy Living</MenuItem>
                 <MenuItem value={financial}>Financial</MenuItem>
                 <MenuItem value={productivity}>Productivity</MenuItem>
@@ -139,6 +141,7 @@ const HabitForm = () => {
             </FormControl>
 
             {/* TODO: Change based on Models */}
+            {/* interval- model */}
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label"> Time of Day</InputLabel>
               <Select
@@ -150,11 +153,11 @@ const HabitForm = () => {
               >
                 <MenuItem value={day}>All Day</MenuItem>
                 <MenuItem value={morning}>Morning</MenuItem>
-                <MenuItem value={noon}>Noon</MenuItem>
+                <MenuItem value={afternoon}>Noon</MenuItem>
                 <MenuItem value={night}>Night</MenuItem>
               </Select>
             </FormControl>
-
+          {/* endDate- models */}
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <StaticDatePicker
                 displayStaticWrapperAs="desktop"
