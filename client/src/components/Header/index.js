@@ -7,11 +7,9 @@ import Tab from '@material-ui/core/Tab';
 
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-// import Login from '../../pages/Login';
-// import Signup from '../../pages/Signup';
-// import Home from '../../pages/Home';//need to check this
+
 import Auth from '../../utils/auth';
-const navTab = () => {
+const NavTab = () => {
   const [value, setValue] = useState(0)
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -78,5 +76,5 @@ const navTab = () => {
   );
 }
 
-export default navTab;
+export default NavTab;
 
