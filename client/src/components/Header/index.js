@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 
 import Auth from '../../utils/auth';
 const NavTab = () => {
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState('Home')
   const handleChange = (event, newValue) => {
     setValue(newValue);
   }
@@ -37,42 +37,49 @@ const NavTab = () => {
       <Tabs
         value={value}
         onChange={handleChange}
-        indicatorColor="primary"
+        indicatorColor="light"
         textColor="primary"
         centered
       >
         {Auth.loggedIn() ? (
+          <>
+
           <button className="btn btn-lg btn-light m-2" onClick={logout}>
             Logout
           </button>
+         
+          <Link className="btn btn-lg btn-light m-2" to="/">
+           <Tab label="Home" />
+           </Link>
+          
+            <Link className="btn btn-lg btn-light m-2" to="/Dailyhabitdashboard">
+            <Tab label="Dashboard" />
+            </Link>
+          
+            <Link className="btn btn-lg btn-light m-2" to="/progress">
+            <Tab label="Progress" />
+            </Link>
+             </>
         ) : (
           <>
             
-            <Link className="btn btn-lg btn-primary m-2" to="/">
-            <Tab  />
+            <Link className="btn btn-lg btn-light m-2" to="/">
+            <Tab label="Home" />
             </Link>
             
             <Link className="btn btn-lg btn-light m-2" to="/login">
-            <Tab  />
+            <Tab label="Login" />
             </Link>
           
             <Link className="btn btn-lg btn-light m-2" to="/signup">
-            <Tab  />
+            <Tab label="Signup" />
             </Link>
 
 
           </>
         )}
       </Tabs>
-      {/* <TabPanel value={value} index={0}>
-        <Home/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Login/>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Signup/>
-      </TabPanel> */}
+    
     </Paper>
   );
 }
