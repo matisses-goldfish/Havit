@@ -6,7 +6,7 @@ export const LOGIN_USER = gql`
       token
       user {
         _id
-        username
+        userName
       }
     }
   }
@@ -14,37 +14,33 @@ export const LOGIN_USER = gql`
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+    addUser(userName: $username, email: $email, password: $password) {
       token
       user {
         _id
-        username
+        userName
       }
     }
   }
 `;
 
 
-// export const ADD_HABIT = gql`
-//   mutation addHabit($name: String!, $type: String, $endDate: Date!, $interval: String!, $user: ID!, $goalValue: Number) {
-//     addHabit(name: $name, type: $type, interval: $interval, endDate: $endDate, user:$user, goalValue: $goalValue) {
-//       token
-//       user {
-//         _id
-//         username
-//       }
-//     }
-//   }
-// `;
+export const ADD_HABIT = gql`
+  mutation addHabit($name: String!, $type: String, $endDate: Date!, $interval: String!, $goalValue: Number) {
+    addHabit(name: $name, type: $type, interval: $interval, endDate: $endDate, goalValue: $goalValue) {
+      habit {
+          _id
+      }
+    }
+  }
+`;
 
-// export const EDIT_HABIT = gql`
-//   mutation editHabit($name: String!, $type: String, $endDate: Date!, $interval: String!, $user: ID!, $goalValue: Number) {
-//     editHabit(name: $name, type: $type, interval: $interval, endDate: $endDate, user:$user, goalValue: $goalValue) {
-//       token
-//       user {
-//         _id
-//         username
-//       }
-//     }
-//   }
-// `;
+export const UPDATE_HABIT = gql`
+  mutation updateHabit($id: String!, $name: String!, $type: String, $endDate: Date!, $interval: String!, $user: ID!, $goalValue: Number) {
+    updateHabit(id: $id, name: $name, type: $type, interval: $interval, endDate: $endDate, goalValue: $goalValue) {
+      habit {
+        _id
+      }
+    }
+  }
+`;

@@ -1,6 +1,6 @@
 // sourced code: https://github.com/mui/material-ui/tree/v5.5.1/docs/data/material/getting-started/templates/sign-in
 // new comment addition
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,16 +16,40 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+
+import Auth from '../utils/auth';
+
 const theme = createTheme();
 
 export default function LogIn() {
-  const handleSubmit = (event) => {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    try {
+      const { data } = await login({
+        variables: { ...userFormData },
+      });
+
+      console.log(data);
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -56,6 +80,7 @@ export default function LogIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleInputChange}
             />
             <TextField
               margin="normal"
@@ -66,6 +91,7 @@ export default function LogIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleInputChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
