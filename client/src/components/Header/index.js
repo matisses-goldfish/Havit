@@ -48,15 +48,15 @@ const NavTab = () => {
           <>
             
             <Link className="btn btn-lg btn-primary m-2" to="/">
-            <Tab  />
+            <Tab label="Home" />
             </Link>
             
             <Link className="btn btn-lg btn-light m-2" to="/login">
-            <Tab  />
+            <Tab label="Login" />
             </Link>
           
             <Link className="btn btn-lg btn-light m-2" to="/signup">
-            <Tab  />
+            <Tab label= "Signup" />
             </Link>
 
 
