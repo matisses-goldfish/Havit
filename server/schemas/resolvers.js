@@ -6,12 +6,12 @@ const resolvers = {
     Query: {
         // get All Habits
         habits: async () => {
-            return Habit.find({});
+            return Habit.find({}).populate('type').populate('interval');
         },
 
         // find habit by id
         habit: async (parent, { _id }) => {
-            return Habit.findById(_id);
+            return Habit.findById(_id).populate('type').populate('interval');
         },
 
         // find active habits (where endDate > current date) 
@@ -20,7 +20,7 @@ const resolvers = {
                 endDate: {
                     $gte: new Date('May 15, 2022'),
                 }
-            });
+            }).populate('type').populate('interval');
         },
 
         // getStats

@@ -18,8 +18,7 @@ import Progress from './pages/Progress';
 import Calender from './pages/Calender';
 import Profile from './pages/Profile';
 
-import Footer from './components/Footer/index'
-// import Header from './components/Header/index'
+// import Footer from './components/Footer/index' // failed to compile with SyntaxError
 // add these two library import statements
 
 const httpLink = createHttpLink({
