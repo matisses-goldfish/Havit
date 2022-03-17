@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -17,25 +17,7 @@ const navTab = () => {
     setValue(newValue);
   }
 
-  function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
-    return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`full-width-tabpanel-${index}`}
-        aria-labelledby={`full-width-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box >
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  }
+ 
   // export default function NavTabs() {
   //   const classes = useStyles();
   //   const preventDefault = (event) => event.preventDefault();
@@ -66,17 +48,17 @@ const navTab = () => {
           </button>
         ) : (
           <>
-            <Tab label="Home" />
-            <Link className="btn btn-lg btn-primary m-2" to="/home">
-              Home
+            
+            <Link className="btn btn-lg btn-primary m-2" to="/">
+            <Tab  />
             </Link>
-            <Tab label="Login" />
+            
             <Link className="btn btn-lg btn-light m-2" to="/login">
-              Login
+            <Tab label="Login" />
             </Link>
-            <Tab label="Signup" />
+          
             <Link className="btn btn-lg btn-light m-2" to="/signup">
-              Signup
+            <Tab label="Signup" />
             </Link>
 
 
