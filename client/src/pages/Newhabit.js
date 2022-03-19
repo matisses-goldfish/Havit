@@ -1,6 +1,10 @@
 // TODO: trouble-shoot calendar component
 import * as React from 'react';
 // form elements
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -9,7 +13,6 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';
 // calendar
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -23,27 +26,27 @@ import { QUERY_TYPES, QUERY_INTERVALS } from '../utils/queries';
 const theme = createTheme();
 
 // option set one
-// const options1 = ['Sleep', 'Gratitude', 'Exercise', 'Study','Drink Water', 'Eat Healthy', 'Meditation', 'Self Care', 'Read'];
+// const habitName = ['Sleep', 'Gratitude', 'Exercise', 'Study','Drink Water', 'Eat Healthy', 'Meditation', 'Self Care', 'Read'];
 // option set two
-// const options2 = ['Healthy Living ', 'Financial', 'Productivity', 'Mindset','Connection'];
+// const habitType = ['Healthy Living ', 'Financial', 'Productivity', 'Mindset','Connection'];
 
-const options3 = ['daytime', 'morning', 'afternoon', 'night'];
+const habitTime = ['daytime', 'morning', 'morning', 'morning'];
 
 
 export default function Newhabit() {
   const { queryTypes, data: dataType  } = useQuery(QUERY_TYPES);
 
-  let options1 = []; 
+  let habitName = []; 
   
   if (dataType) {
-      options1 = dataType.types.map(t => t.name);
+    habitName = dataType.types.map(t => t.name);
   }
 
   const { queryIntervals, data: dataIntervals} = useQuery(QUERY_INTERVALS);
 
-  let options2 = []; 
+  let habitType = []; 
   if (dataIntervals) {
-      options2 = dataIntervals.intervals.map(t => t.name);
+    habitType = dataIntervals.intervals.map(t => t.name);
   }
 
     const handleSubmit = (event) => {
@@ -55,13 +58,8 @@ export default function Newhabit() {
       });
     };
 
-    const [value, setValue] = React.useState(options1[0]);
-    const [inputValue, setInputValue] = React.useState({
-      name: '',
-      type: '',
-      interval: '',
-      goalValue: ''
-    });
+    const [value, setValue] = React.useState([null, null]);
+
 
     // const handleInputChange = (event, newValue) => {
     //   const { id, value } = event.target;
@@ -82,87 +80,86 @@ export default function Newhabit() {
               alignItems: 'center',
             }}
           >
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h4">
               New Habit
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, }}>
-              <Grid>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, width: 1250}} textAlign='center'>
+            <Grid container columns={16}>
+              <Grid xs={8}>
               <Stack spacing={4} sx={{ width: 500 }}>
-              <TextField
-                  required
-                  fullWidth
-                  id="name"
-                  label=" Name "
-                  name="name"
-                  // onChange={handleInputChange}
-                />
-
-              <Autocomplete
-                value={value}
-                // onChange={(event, newValue) => {
-                // setValue(newValue);
-                // }}
-                inputValue={inputValue}
-                onInputChange={(event, newInputValue) => {
-                  setInputValue({...inputValue, type: newInputValue});
-                }}
-                // onChange={handleInputChange}
-                id="type"
-                options={options1}
-                sx={{ width: 500 }}
-                renderInput={(params) => <TextField {...params} label="Type" />}
-                />
-                
-                <Autocomplete
-                value={value}
-                onChange={(event, newValue) => {
-                setValue(newValue);
-                }}
-                inputValue={inputValue}
-                onInputChange={(event, newInputValue) => {
-                setInputValue(newInputValue);
-                }}
-                id="controllable-states-demo"
-                options={options2}
-                sx={{ width: 500 }}
-                renderInput={(params) => <TextField {...params} label="Time of Day" />}
-                />
-                <TextField
-                  required
-                  fullWidth
-                  id="goalValue"
-                  label=" Goal "
-                  name="goalValue"
-                  // onChange={handleInputChange}
-                />
-                </Stack>
-
-                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <StaticDateRangePicker
-                    displayStaticWrapperAs="desktop"
-                    value={value}
-                    onChange={(newValue) => {
-                    setValue(newValue);
-                    }}
-                    renderInput={(startProps, endProps) => (
-                    <React.Fragment>
-                        <TextField {...startProps} />
-                        <Box sx={{ mx: 2 }}> to </Box>
-                        <TextField {...endProps} />
-                    </React.Fragment>
-                    )}
-                />
-                </LocalizationProvider> */}
+              <FormControl>
+                <InputLabel htmlFor="grouped-select">Habit</InputLabel>
+                <Select defaultValue="" id="grouped-select" label="Habit">
+                  <MenuItem value="" disable>
+                    <em>please select one</em>
+                  </MenuItem>
+                  <MenuItem value={1}>Sleep</MenuItem>
+                  <MenuItem value={2}>Gratitude</MenuItem>
+                  <MenuItem value={3}>Exercise</MenuItem>
+                  <MenuItem value={4}>Study</MenuItem>
+                  <MenuItem value={5}>Drink Water</MenuItem>
+                  <MenuItem value={6}>Eat Healthy</MenuItem>
+                  <MenuItem value={7}>Meditation</MenuItem>
+                  <MenuItem value={8}>Self Care</MenuItem>
+                  <MenuItem value={9}>Read</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="grouped-select">Type</InputLabel>
+                <Select defaultValue="" id="grouped-select" label="Type">
+                  <MenuItem value="" disable>
+                    <em>please select one</em>
+                  </MenuItem>
+                  <MenuItem value={1}>Healthy Living</MenuItem>
+                  <MenuItem value={2}>Financial</MenuItem>
+                  <MenuItem value={3}>Productivity</MenuItem>
+                  <MenuItem value={4}>Mindset</MenuItem>
+                  <MenuItem value={5}>Connection</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="grouped-select">Time of Day</InputLabel>
+                <Select defaultValue="" id="grouped-select" label="Time of Day">
+                  <MenuItem value="" disable>
+                    <em>please select one</em>
+                  </MenuItem>
+                  <MenuItem value={1}>daytime</MenuItem>
+                  <MenuItem value={2}>morning</MenuItem>
+                  <MenuItem value={3}>afternoon</MenuItem>
+                  <MenuItem value={4}>night</MenuItem>
+                </Select>
+              </FormControl>
+              </Stack>
               </Grid>
-
+              <Grid xs={8}>
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <StaticDateRangePicker
+                      displayStaticWrapperAs="desktop"
+                      value={value}
+                      onChange={(newValue) => {
+                      setValue(newValue);
+                      }}
+                      renderInput={(startProps, endProps) => (
+                      <React.Fragment>
+                          <TextField {...startProps} />
+                          <Box sx={{ mx: 2 }}> to </Box>
+                          <TextField {...endProps} />
+                      </React.Fragment>
+                      )}
+                  />
+                  </LocalizationProvider>
+              </Grid>
+              <Box textAlign='center' sx={{width: 12000 }}>
               <Button
                 type="submit"
-                fullWidth
+                href="/Dailyhabitdashboard"
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, width:400 }}
               >
-                Create
+                Create Habit
               </Button>
+              </Box>
+              </Grid>
             </Box>
           </Box>
         </Container>
