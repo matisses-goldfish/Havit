@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Auth from '../utils/auth';
 
 // TODO: add functionality for get started button
 
@@ -15,7 +16,7 @@ function Home(){
         <grid>
           <Box sx={{ bgcolor: '#FFFFFF', height: '70vh', width:'160vh', p: 7}} textAlign='center'>
           <Typography variant="h2" component="h1" align="center">
-            Being your quest to personal and professional success!
+            Begin your quest to personal and professional success!
           </Typography>
           <Typography variant="h5" component="h1" align="center">
             Build and develop habits to create a healther environment for your mental and physical self.
@@ -23,7 +24,7 @@ function Home(){
 
           <Button
                 type="submit"
-                href="/signup"
+                href={Auth.loggedIn() ? "/progress" : "/signup"}
                 variant="contained"
                 size="large"
                 sx={{ mt: 3, mb: 2 }}

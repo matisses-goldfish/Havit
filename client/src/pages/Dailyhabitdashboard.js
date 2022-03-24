@@ -57,12 +57,12 @@ function Dailyhabitdash() {
                 <Grid> 
                 {/* TODO: add date */}
                     <Typography variant="h2" component="h1" align="left">
-                        Welcome Back...
+                        Welcome Back!
                     </Typography>
                     {/* TODO add user info */}
                     <Typography variant="h4" component="h1" align="left">
                         {/* {user.userName} */}
-                        honore 
+                        
                     </Typography>
                 </Grid>
                 <Separator2 />
@@ -156,13 +156,13 @@ function Dailyhabitdash() {
                         <Grid xs={10}>
                             <CardContent>
                             <Typography variant="subtitle1" component="h1" align="left">
-                                Master 
+                                Beginner
                             </Typography>
                             <Typography variant="h4" component="h1" align="left">
                                 Self Care 
                             </Typography>
                             <Typography variant="h6" component="h1" align="left">
-                                Date created: January 10th 2022 
+                                Date created: March 18th 2022 
                             </Typography>
                             </CardContent>
                         </Grid>
@@ -189,7 +189,7 @@ function Dailyhabitdash() {
                     <Grid> 
                     {/* TODO: add date */}
                         <Typography variant="h2" component="h1" align="left">
-                            Calendar, 
+                            Calendar
                         </Typography>
                         {/* TODO add user info */}
                     </Grid>
@@ -203,12 +203,11 @@ function Dailyhabitdash() {
                     </LocalizationProvider>                    
                     </Grid>
                     <Grid> 
-                        <Typography variant="h4" component="h2" align="left">
-                            Honore, 
-                        </Typography>
+                        
                         {/* TODO: add precentage in connection to stats */}
                         <Typography variant="h5" component="h2" align="left">
-                        You have a 14 day streak! Before you know it you’ll acheive a master level of completion on all habits!                    
+                        You have a 4 day streak! 
+                        Before you know it you’ll acheive a master level of completion on all habits!                    
                         </Typography>
                         <Typography variant="h5" component="h4" align="left" style={{ fontWeight: 600 }}>
                             Well done! 
