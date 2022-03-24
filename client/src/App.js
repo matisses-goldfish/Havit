@@ -75,7 +75,7 @@ function App() {
 
               {/* TODO: change to /Dailyhabitdashboard/:username */}
               <Route 
-                path="/dashboard" 
+                path="/Dailyhabitdashboard" 
                 element={<Dailyhabitdash />}
               />
               <Route 
