@@ -42,27 +42,12 @@ const Separator = styled('div')(
           <grid>
             <Box sx={{ bgcolor: '#FFFFFF', height: '100vh', width:'160vh', p: 7}} textAlign='center'>
             <Typography variant="h2" component="h1" align="center">
-              Welcome Back...
+              Welcome Back
             </Typography>
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 1: On a sclae of 1-10 how is your water intake?
-            </Typography>
-            <Slider
-                aria-label="Progress"
-                defaultValue={3}
-                getAriaValueText={valuetext}
-                valueLabelDisplay="auto"
-                step={1}
-                marks
-                min={1}
-                max={10}
-            />
-            <Separator />
-            {/* TODO: !!! */}
-            <Typography variant="h5" component="h1" align="center">
-            Question 2: On a sclae of 1-10 how was your sleep last night?
+              Question 1: On a scale of 1-10 how is your water intake?
             </Typography>
             <Slider
                 aria-label="Progress"
@@ -77,7 +62,7 @@ const Separator = styled('div')(
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 3: On a sclae of 1-10 how would rate your stress level?
+            Question 2: On a scale of 1-10 how was your sleep last night?
             </Typography>
             <Slider
                 aria-label="Progress"
@@ -92,7 +77,22 @@ const Separator = styled('div')(
             <Separator />
             {/* TODO: !!! */}
             <Typography variant="h5" component="h1" align="center">
-              Question 4: Please shared thoughts on how you think your improve your personal and professional self?
+              Question 3: On a scale of 1-10 how would rate your stress level?
+            </Typography>
+            <Slider
+                aria-label="Progress"
+                defaultValue={3}
+                getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                step={1}
+                marks
+                min={1}
+                max={10}
+            />
+            <Separator />
+            {/* TODO: !!! */}
+            <Typography variant="h5" component="h1" align="center">
+              Question 4: Please share your thoughts on how you think you will improve your personal and professional self today? Remember that small steps lead to big progress
             </Typography>
             <TextField 
             fullWidth 
