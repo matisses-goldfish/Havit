@@ -1,5 +1,5 @@
 
-# Havet: The all in one habit tracker
+# Havit: The all in one habit tracker
 [![License: ](https://img.shields.io/badge/license--brightgreen)](https://opensource.org/licenses/)
 #### **Name:** Honore, Ellie, Lizbet, Sahana
 #### **Deployed Link:** https://havit-tracker.herokuapp.com/
